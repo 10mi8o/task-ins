@@ -1,4 +1,16 @@
 <%= form_with(model: @picture, local: true) do |form| %>
+
+<% if @picture.errors.any? %>
+  <div id="error_box">
+    <h2><%= @picture.errors.count %>件のエラーを検出しました</h2>
+    <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="field">
   <%= form.label :title %>
   <%= form.text_field :title %>

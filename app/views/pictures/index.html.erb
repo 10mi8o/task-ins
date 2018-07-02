@@ -1,1 +1,17 @@
-<%= @test %>
+<% @pictures.each do |picture| %>
+
+<table>
+  <tr>
+    <td>タイトル</td>
+    <td>テキスト</td>
+  </tr>
+  <tr>
+    <div class="">
+      <td><%= picture.title %></td>
+      <td><%= picture.content %></td>
+      <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
+    </div>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新規投稿画面にもどる', new_picture_path %>
