@@ -5,6 +5,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @new_test = 'new_test'
+    @picture = Picture.new
+  end
+
+  def create
+    Picture.create(title: params[:picture][:title], content:params[:picture][:content])
+    redirect_to new_picture_path
   end
 end

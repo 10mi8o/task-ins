@@ -1,4 +1,4 @@
-<%= form_with(model: Picture.new, local: true) do |form| %>
+<%= form_with(model: @picture, local: true) do |form| %>
 <div class="field">
   <%= form.label :title %>
   <%= form.text_field :title %>
@@ -7,9 +7,10 @@
   <%= form.label :content %>
   <%= form.text_field :content %>
 </div>
-<div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image, id: :picture_image%>
-</div>
+<!-- add 180701 画像のアップ実装時、以下4行をマスク解除 -->
+<!-- <div class="field"> -->
+  <%#= form.label :image %>
+  <%#= form.file_field :image, id: :picture_image%>
+<!-- </div> -->
 <%= form.submit %>
 <% end %>
