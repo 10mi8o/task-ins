@@ -6,7 +6,6 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
-
   end
 
   def create
@@ -20,6 +19,19 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+  end
+
+  def edit
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+    if @picture.update(picture_params)
+      redirect_to pictures_path, notice: '投稿の編集が完了しました'
+    else
+      render 'edit'
+    end
   end
 
   private
