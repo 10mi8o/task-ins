@@ -1,4 +1,30 @@
+<%= form_with(model: @picture, local: true) do |form| %>
+
+<% if @picture.errors.any? %>
+  <div id="error_box">
+    <h2><%= @picture.errors.count %>件のエラーを検出しました</h2>
+    <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image, id: :picture_image %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
 </div>
+<div class="field">
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+</div>
+<!-- add 180701 画像のアップ実装時、以下4行をマスク解除 -->
+<!-- <div class="field"> -->
+  <%#= form.label :image %>
+  <%#= form.file_field :image, id: :picture_image%>
+<!-- </div> -->
+<%= form.submit %>
+<% end %>
+
+<%= link_to '一覧画面にもどる', pictures_path %>
