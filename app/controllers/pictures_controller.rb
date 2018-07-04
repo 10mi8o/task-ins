@@ -33,10 +33,15 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def confirm
+    @picture = Picture.new(picture_params)
+  end
+
   def destroy
     @picture.destroy
     redirect_to pictures_path, notice: '投稿を削除しました'
   end
+
 
   private
   def picture_params
