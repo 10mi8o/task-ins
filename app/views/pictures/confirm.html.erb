@@ -4,6 +4,8 @@
 <%= form.hidden_field :content%>
 
 <p>タイトル:<%= @picture.title %></p>
+<p>Image:<%= image_tag(@picture.image_url) %></p>
+<p><%= hidden_field_tag :"cache[image]",@picture.image.cache_name %></p>
 <p>本文：<%= @picture.content %></p>
 <%= form.submit %>
 <% end %>

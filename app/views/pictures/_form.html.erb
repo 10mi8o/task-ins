@@ -19,11 +19,11 @@
   <%= form.label :content %>
   <%= form.text_field :content %>
 </div>
-<!-- add 180701 画像のアップ実装時、以下4行をマスク解除 -->
-<!-- <div class="field"> -->
-  <%#= form.label :image %>
-  <%#= form.file_field :image, id: :picture_image%>
-<!-- </div> -->
+<div class="field">
+  <%= form.label :image %>
+  <%= image_tag(@picture.image.url)if @picture.image.url %>
+  <%= form.file_field :image, id: :picture_image %>
+</div>
 <%= form.submit %>
 <% end %>
 

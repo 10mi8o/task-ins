@@ -13,6 +13,7 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
+    @picture.image.retrieve_from_cache! params[:cache][:image]
     if @picture.save
       redirect_to pictures_path, notice:'投稿が完了しました'
     else
@@ -46,7 +47,7 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   private
   def picture_params
-    params.require(:picture).permit(:title, :content)
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
   end
 
   def set_picture
