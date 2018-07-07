@@ -1,11 +1,17 @@
-<h3>以下の内容で送信する？</h3>
+<div class="container">
+  <div class="row">
+
+<h3 class="mb20">以下の内容で送信する？</h3>
 <%= form_with(model: @picture, url: pictures_path, local: true)do |form| %>
 <%= form.hidden_field :title %>
 <%= form.hidden_field :content%>
 
-<p>タイトル:<%= @picture.title %></p>
-<p>Image:<%= image_tag(@picture.image_url) %></p>
-<p><%= hidden_field_tag :"cache[image]",@picture.image.cache_name %></p>
-<p>本文：<%= @picture.content %></p>
-<%= form.submit %>
+    <p>タイトル:<%= @picture.title %></p>
+    <p>Image:<span class="preview"><%= image_tag(@picture.image_url) %></span></p>
+    <p><%= hidden_field_tag :"cache[image]",@picture.image.cache_name %></p>
+    <p>本文：<%= @picture.content %></p>
+    <%= form.submit %>
+  </div>
+</div>
+
 <% end %>

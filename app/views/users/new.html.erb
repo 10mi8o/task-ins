@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1 class="text-center mb20">Sign up</h1>
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -11,19 +11,36 @@
   </div>
 <% end %>
 
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= form_with(model: @user, local: true) do |f| %>
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center mb20">
+      <%= f.label :name, class: 'form_head' %>
+      <%= f.text_field :name %>
+    </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center mb20">
+      <%= f.label :email, class: 'form_head' %>
+      <%= f.email_field :email %>
+    </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center mb20">
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+      <%= f.label :password, class: 'form_head' %>
+      <%= f.password_field :password %>
+    </div>
 
-  <%= f.submit "アカウントを作成する" %>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center mb20">
+      <%= f.label :password_confirmation, class: 'form_head' %>
+      <%= f.password_field :password_confirmation %>
+    </div>
 
-<% end %>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+      <%= f.submit "アカウントを作成する" %>
+    </div>
+    </div>
+  </div>
+
+
+
+    <% end %>

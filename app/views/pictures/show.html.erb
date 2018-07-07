@@ -1,11 +1,18 @@
-<h1>投稿詳細画面</h1>
-<p>タイトル:<%= @picture.title %></p>
-<%= image_tag @picture.image %>
-<p>内容:<%= @picture.content %></p>
-<% unless @picture.user == current_user %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row text-center">
+    <h1 class="mb20">投稿詳細画面</h1>
+    <div class="detail-item mb20">タイトル : <%= @picture.title %></div>
+    <div class="mb20">
+      <%= image_tag @picture.image %>
+    </div>
+    <div class="detail-item mb20">内容 : <%= @picture.content %></div>
+    <% unless @picture.user == current_user %>
+      <% if @favorite.present? %>
+        <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+    <%= link_to '一覧画面にもどる', pictures_path, class: 'btn btn-default' %>
+  </div>
+</div>

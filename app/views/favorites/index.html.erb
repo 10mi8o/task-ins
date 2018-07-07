@@ -1,9 +1,12 @@
-<h1>お気に入り一覧</h1>
-<table>
-  <% @favorites_pictures.each do | favorite_picture | %>
-  <tr>
-    <td><%= link_to "#{favorite_picture.title}", picture_path(favorite_picture.id) %></td>
-  </tr>
-  <% end %>
-
-</table>
+<div class="container">
+  <div class="row">
+    <h1>お気に入り一覧</h1>
+    <table>
+      <% @favorites_pictures.each do | favorite_picture | %>
+      <tr>
+        <td><%= link_to "#{favorite_picture.title}", picture_path(favorite_picture.id) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

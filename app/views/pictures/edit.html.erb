@@ -11,18 +11,24 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+<div class="container">
+  <div class="row">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </div>
+    <!-- add 180701 画像のアップ実装時、以下4行をマスク解除 -->
+    <div class="field mb20">
+      <%= form.label :image %>:
+      <div><%= image_tag(@picture.image.url)if @picture.image.url %></div>
+      <div><%= form.file_field :image, id: :picture_image %></div>
+    </div>
+    <%= form.submit %>
+    <% end %>
+
+  </div>
 </div>
-<div class="field">
-  <%= form.label :content %>
-  <%= form.text_field :content %>
-</div>
-<!-- add 180701 画像のアップ実装時、以下4行をマスク解除 -->
-<!-- <div class="field"> -->
-  <%#= form.label :image %>
-  <%#= form.file_field :image, id: :picture_image%>
-<!-- </div> -->
-<%= form.submit %>
-<% end %>

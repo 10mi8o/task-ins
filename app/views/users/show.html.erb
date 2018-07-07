@@ -1,12 +1,29 @@
-<h1><%= @user.name %></h1>
-<p>メールアドレス: <%= @user.email %></p>
+<h1 class="text-center">User-Name:<%= @user.name %></h1>
 
-<h2>お気に入り一覧</h2>
-<table>
-  <% @favorites_pictures.each do | favorite_picture | %>
-  <tr>
-    <td><%= link_to "#{favorite_picture.title}", picture_path(favorite_picture.id) %></td>
-  </tr>
-  <% end %>
+<p class="text-center">Mail-Address: <%= @user.email %></p>
 
-</table>
+<div class="container">
+  <div class="row">
+    <h3 class="text-center mb20">お気に入り一覧</h3>
+    <div class="text-center mb20">
+      <div>
+        詳細を見る
+      </div>
+      <% @favorites_pictures.each do | favorite_picture | %>
+      <div>
+        <%= link_to "#{favorite_picture.title}", picture_path(favorite_picture.id) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="text-center">
+
+    <% if logged_in? %>
+      <div class="btn btn-default"><%= link_to "View Posts", pictures_path %></div>
+      <div class="btn btn-default"><%= link_to "Logout", session_path(current_user.id), method: :delete %></div>
+    <% else %>
+      <div class="btn btn-default"><%= link_to "Log in", new_session_path %></div>
+    <% end %>
+  </div>
+</div>

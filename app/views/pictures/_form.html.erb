@@ -11,20 +11,22 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :title %>
+<div class="field mb20">
+  <%= form.label :title %>:
   <%= form.text_field :title %>
 </div>
-<div class="field">
-  <%= form.label :content %>
+<div class="field mb20">
+  <%= form.label :content %>:
   <%= form.text_field :content %>
 </div>
-<div class="field">
-  <%= form.label :image %>
-  <%= image_tag(@picture.image.url)if @picture.image.url %>
-  <%= form.file_field :image, id: :picture_image %>
+<div class="field mb20">
+  <%= form.label :image %>:
+  <div><%= image_tag(@picture.image.url)if @picture.image.url %></div>
+  <div><%= form.file_field :image, id: :picture_image %></div>
 </div>
-<%= form.submit %>
+<div class="mb20">
+  <%= form.submit %>
+</div>
 <% end %>
 
-<%= link_to '一覧画面にもどる', pictures_path %>
+<%= link_to '一覧画面にもどる', pictures_path, class: 'btn btn-default' %>
