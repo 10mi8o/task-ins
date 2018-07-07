@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  root to: 'users#new'
+
   resources :pictures do
     collection do
       post :confirm
