@@ -44,7 +44,6 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
     redirect_to pictures_path, notice: '投稿を削除しました'
   end
 
-
   private
   def picture_params
     params.require(:picture).permit(:title, :content)
