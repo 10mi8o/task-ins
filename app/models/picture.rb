@@ -1,7 +1,11 @@
 class Picture < ApplicationRecord
-  validates :title, presence: true
-  # add 180701 画像のアップ実装時、以下1行をマスク解除
   mount_uploader :image, ImageUploader
+
+  validates :title, presence: true
+  validates :content, presence: true, length: { maximum: 150 }
+  validates :image, presence: true, on: :create
+  # validate :image_size
+
 
   belongs_to :user
   has_many :favorites, dependent: :destroy

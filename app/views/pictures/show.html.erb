@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row text-center">
     <h1 class="mb20">投稿詳細画面</h1>
+    <div class="detail-item mb20">投稿者 : <%= @picture.user.name %></div>
     <div class="detail-item mb20">タイトル : <%= @picture.title %></div>
     <div class="mb20">
       <%= image_tag @picture.image %>

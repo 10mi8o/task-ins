@@ -2,12 +2,18 @@
   <div class="row">
 
 <h3 class="mb20">以下の内容で送信する？</h3>
-<%= form_with(model: @picture, url: pictures_path, local: true)do |form| %>
+<%= form_with(model: @picture, local: true)do |form| %>
 <%= form.hidden_field :title %>
 <%= form.hidden_field :content%>
+<%= form.hidden_field :image %>
+<%= form.hidden_field :image_cache %>
 
     <p>タイトル:<%= @picture.title %></p>
-    <p>Image:<span class="preview"><%= image_tag(@picture.image_url) %></span></p>
+    <% if @picture.image.url %>
+    <p>Image:<span class="preview"><%= image_tag @picture.image_url %></span></p>
+    <% else %>
+    <% image_tag @picture.image %>
+    <% end %>
     <p><%= hidden_field_tag :"cache[image]",@picture.image.cache_name %></p>
     <p>本文：<%= @picture.content %></p>
     <%= form.submit %>

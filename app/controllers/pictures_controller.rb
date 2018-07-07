@@ -13,7 +13,7 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-    @picture.image.retrieve_from_cache! params[:cache][:image]
+    @picture.image.retrieve_from_cache!(params[:cache][:image]) if params[:cache][:image].present?
     if @picture.save
       ContactMailer.create_picture_mail(@picture).deliver
       redirect_to pictures_path, notice:'投稿が完了しました'
