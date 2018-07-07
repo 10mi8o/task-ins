@@ -15,6 +15,7 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
     @picture.user_id = current_user.id
     @picture.image.retrieve_from_cache! params[:cache][:image]
     if @picture.save
+      ContactMailer.create_picture_mail(@picture).deliver
       redirect_to pictures_path, notice:'投稿が完了しました'
     else
       render 'new'

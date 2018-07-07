@@ -1,0 +1,12 @@
+class ContactMailer < ApplicationMailer
+
+  default form: 'notification@example.com'
+
+  def create_picture_mail(picture)
+    @picture = picture
+    # @url =
+    mail(to: 'totoma855@gmail.com', subject: 'pictureを投稿しました')
+
+  end
+
+end
