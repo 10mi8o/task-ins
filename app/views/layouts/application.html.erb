@@ -13,12 +13,16 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
-          <span class="sr-only">¥DIC_TASK</span>
+          <span class="sr-only">DIC_TASK</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <% if logged_in? %>
+        <a class="navbar-brand" href="/pictures">DIC_TASK</a>
+        <% else %>
         <a class="navbar-brand" href="/">DIC_TASK</a>
+        <% end %>
       </div>
       <div id="gnavi" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
