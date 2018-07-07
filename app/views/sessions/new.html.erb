@@ -13,8 +13,11 @@
         <%= f.password_field :password%>
       </div>
 
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center mb10">
         <%= f.submit "Log in", class: 'btn btn-primary' %>
+      </div>
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+        <%= link_to "or Sign up", new_user_path %>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ class Picture < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true, length: { maximum: 150 }
-  validates :image, presence: true, on: :create
+  validates :image, presence: true
   # validate :image_size
 
 

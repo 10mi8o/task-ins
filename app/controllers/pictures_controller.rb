@@ -39,6 +39,8 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   def confirm
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
+    render :new if @picture.invalid?
   end
 
   def destroy
@@ -54,5 +56,13 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def set_picture
     @picture = Picture.find(params[:id])
   end
+
+# 追記、検証箇所
+  # def current_user
+  #   unless current_user.id == @picture.user.id
+  #     flash[:danger] = '権限がありません'
+  #     redirect_back(fallback_location: picture_path(@picture))
+  #   end
+  # end
 
 end
