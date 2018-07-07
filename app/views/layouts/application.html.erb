@@ -28,7 +28,6 @@
             <li><%= link_to "Favorite Posts", favorites_path %></li>
             <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
           <% else %>
-            <!-- <li><%= link_to "Sign up", new_user_path %></li> -->
             <li><%= link_to "Log in", new_session_path %></li>
           <% end %>
         </ul>
